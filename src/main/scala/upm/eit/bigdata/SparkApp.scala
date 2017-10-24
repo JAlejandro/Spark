@@ -11,7 +11,7 @@ object SparkApp {
     //TODO Forcing Spark to Run in Local Mode @see http://spark.apache.org/docs/latest/submitting-applications.html
     conf.setMaster("local")
     val sc = new SparkContext(conf)
-    val data = sc.textFile("./src/main/resources/pagecounts-20100806-030000")
+    val data = sc.textFile("./src/main/resources/pagecounts_only_2000")
     val numAs = data.filter(line => line.contains("a")).count()
     val numBs = data.filter(line => line.contains("b")).count()
     println(s"Lines with a: ${numAs}, Lines with b: ${numBs}")
